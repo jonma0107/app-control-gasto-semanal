@@ -1,6 +1,6 @@
 // VARIABLES
 const formulario = document.querySelector('#agregar-gasto');
-const gastoListado = document.querySelector('#gastos ul')
+const gastoListado = document.querySelector('#gastos ul');
 
 
 // EVENTOS
@@ -68,7 +68,7 @@ class UI {
 
     setTimeout(() => {
       divAlerta.remove();
-    }, 5000)
+    }, 4000)
 
   };
 
@@ -143,17 +143,18 @@ class UI {
       // Comprobar el 50% gastado
     } else if ((presupuesto / 2) === restante) {
       this.imprimirAlerta('Te has gastado el 50% del presupuesto', 'warning')
-      restanteDiv.classList.remove('alert-success');
+      restanteDiv.classList.remove('alert-success', 'alert-danger');
       restanteDiv.classList.add('alert-warning');
     } else if ((presupuesto / 2) > restante) {
       this.imprimirAlerta('Te has gastado mas del 50% del presupuesto', 'warning')
-      restanteDiv.classList.remove('alert-success');
+      restanteDiv.classList.remove('alert-success', 'alert-danger');
       restanteDiv.classList.add('alert-warning');
     } else {
       restanteDiv.classList.remove('alert-danger', 'alert-warning');
       restanteDiv.classList.add('alert-success');
       formulario.querySelector('button[type="submit"]').disabled = false;
       formulario.querySelector('button[type="submit"]').style.display = 'inline-block';
+
     }
 
   };
