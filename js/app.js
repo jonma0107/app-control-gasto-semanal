@@ -68,7 +68,7 @@ class UI {
 
     setTimeout(() => {
       divAlerta.remove();
-    }, 8000)
+    }, 6000)
 
   };
 
