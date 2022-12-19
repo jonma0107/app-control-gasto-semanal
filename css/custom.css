@@ -16,6 +16,7 @@ header {
 .contenido-principal {
   background-color: white;
   padding: 30px;
+  padding-bottom: 50px;
   border-radius: 20px;
 }
 
@@ -48,6 +49,7 @@ h2 {
 
 button {
   padding: 10px 15px;
+  margin-top: 5px;
   border: none;
   border-radius: 5px;
   background-color: #333;
@@ -58,4 +60,15 @@ button {
 
 button:hover {
   box-shadow: 0 0 10px 5px #004e92;
+}
+
+#agregar-gasto {
+  position: relative;
+}
+
+.btn-agregar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 250%);
 }
