@@ -17,7 +17,7 @@ El proyecto pretende crear desde el lado del Front-End una interfaz que permita 
   
 </div>  
 
-+ En la sección ```Añade tus gastos aqui``` podemos darle nombre a nuestro gasto y digitar el valor o la cifra que represente lo que se quiere gastar, completando de esta manera los campos del formulario para poder darle clic al botón ```Agregar```, la validación no permite que se pueda agregar un gasto si alguno de los campos del formulario está vacío.
++ En la sección ```Añade tus gastos aqui``` podemos darle nombre a nuestro gasto y digitar el valor o la cifra que represente lo que se quiere gastar, completando de esta manera los campos del formulario para poder darle clic al botón ```Agregar```. La validación no permite que se pueda agregar un gasto si alguno de los campos del formulario está vacío.
 
 <div align="center">
 
