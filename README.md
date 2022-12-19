@@ -41,7 +41,7 @@ El proyecto pretende crear desde el lado del Front-End una interfaz que permita 
   
 </div>
 
-+ Borrado el gasto que consideremos borrar, la cifra que haya en el lugar de ```Restante``` cambiará sumándose a ella la cantidad que se le había restado devolviendole así valores que se le habían quitado por la cantidad del gasto o los gastos que se hubieran enlistado.
++ Borrado el gasto que consideremos borrar, la cifra que haya en el lugar de ```Restante``` cambiará sumándose a ella la cantidad que se le había restado devolviendole así valores que se le habían quitado por la cantidad del gasto o los gastos que se hubieran enlistado. Así mismo por medio de la validación también se reintegra el botón de ```Agregar``` estando así disponible para crear un nuevo gasto
 
 <div align="center">
   
