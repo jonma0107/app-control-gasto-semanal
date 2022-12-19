@@ -20,7 +20,7 @@ class Presupuesto {
   }
 
   nuevoGasto(gasto) {
-    this.gastos = [...this.gastos, gasto];
+    this.gastos = [...this.gastos, gasto]; // Spreed Operator
     this.calcularRestante();
   }
 
@@ -32,9 +32,13 @@ class Presupuesto {
 
   eliminarGasto(id) {
     this.gastos = this.gastos.filter(gasto => gasto.id !== id);
-    console.log(this.gastos);
-  }
-}
+    // console.log(this.gastos);
+    // vuelve a iterar sobre ek Objeto
+    this.calcularRestante();
+  };
+};
+
+/********************************************************************************/
 
 class UI {
   insertarPresupuesto(cantidad) {
@@ -68,7 +72,7 @@ class UI {
 
   };
 
-  agregarGastoListado(gastos) {
+  mostrarGastos(gastos) {
 
     this.limpiarHTMl(); // elimina el HTML previo
 
@@ -106,7 +110,6 @@ class UI {
     };
   };
 
-
   actualizarRestante(restante) {
     document.querySelector('#restante').textContent = restante;
   };
@@ -115,28 +118,47 @@ class UI {
     const { presupuesto, restante } = presupuestObj;
     const restanteDiv = document.querySelector('.restante');
     if (restante === 0) {
+      // Comprobar el 100% gastado
       this.imprimirAlerta('Te has gastado todo el presupuesto', 'error')
       restanteDiv.classList.remove('alert-success');
       restanteDiv.classList.add('alert-danger');
       formulario.querySelector('button[type="submit"]').disabled = true;
       formulario.querySelector('button[type="submit"]').style.display = 'none';
+      // Comprobar el ingreso de un valor que exceda el 100%
     } else if (restante < 0) {
-      this.imprimirAlerta('No puedes hacer ese gasto, no te alcanza del presupuesto total. Debes borrar ese gasto ', 'error')
+      this.imprimirAlerta('No puedes hacer ese gasto, no te alcanza del presupuesto total. Debes borrar ese gasto.', 'error')
       restanteDiv.classList.remove('alert-success');
       restanteDiv.classList.add('alert-danger');
-    } else if ((presupuesto / 4) >= restante) {
-      this.imprimirAlerta('Te has gastado mas del 75% del presupuesto', 'error')
+      formulario.querySelector('button[type="submit"]').disabled = true;
+      formulario.querySelector('button[type="submit"]').style.display = 'none';
+      // Comprobar el 75% gastado
+    } else if ((presupuesto / 4) === restante) {
+      this.imprimirAlerta('Te has gastado el 75% del presupuesto', 'error')
       restanteDiv.classList.remove('alert-success');
       restanteDiv.classList.add('alert-danger');
-    } else if ((presupuesto / 2) >= restante) {
+    } else if ((presupuesto / 4) > restante) {
+      this.imprimirAlerta('Te has gastado más del 75% del presupuesto', 'error')
+      restanteDiv.classList.remove('alert-success');
+      restanteDiv.classList.add('alert-danger');
+      // Comprobar el 50% gastado
+    } else if ((presupuesto / 2) === restante) {
+      this.imprimirAlerta('Te has gastado el 50% del presupuesto', 'warning')
+      restanteDiv.classList.remove('alert-success');
+      restanteDiv.classList.add('alert-warning');
+    } else if ((presupuesto / 2) > restante) {
       this.imprimirAlerta('Te has gastado mas del 50% del presupuesto', 'warning')
       restanteDiv.classList.remove('alert-success');
       restanteDiv.classList.add('alert-warning');
+    } else {
+      restanteDiv.classList.remove('alert-danger', 'alert-warning');
+      restanteDiv.classList.add('alert-success');
+      formulario.querySelector('button[type="submit"]').disabled = false;
+      formulario.querySelector('button[type="submit"]').style.display = 'inline-block';
     }
 
-  }
+  };
 
-}
+};
 
 //**********************************************************************************/
 
@@ -189,7 +211,7 @@ function agregarGasto(e) {
 
   // Imprimir los gastos
   const { gastos, restante } = presupuesto;
-  ui.agregarGastoListado(gastos);
+  ui.mostrarGastos(gastos);
   ui.actualizarRestante(restante);
   ui.comprobarPresupuesto(presupuesto);
 
@@ -200,7 +222,14 @@ function agregarGasto(e) {
 /***********************************************************************************/
 
 function eliminarGasto(id) {
+  // Elimina los gastos del Objeto
   presupuesto.eliminarGasto(id);
+  // Elimina los gastos del HTML
+  const { gastos, restante } = presupuesto;
+  ui.mostrarGastos(gastos);
+  // actualiza el Restante
+  ui.actualizarRestante(restante);
+  ui.comprobarPresupuesto(presupuesto);
 }
 
 
