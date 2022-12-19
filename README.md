@@ -1,7 +1,7 @@
 # app-control-gasto-semanal
 work in process
 
-![image](https://user-images.githubusercontent.com/53632260/208357503-053d456b-963d-4998-8005-5cc6fb5f682f.png)
+![image](https://user-images.githubusercontent.com/53632260/208369482-68c61cd1-8c9b-47a3-a565-145f9e005819.png)
 ![image](https://user-images.githubusercontent.com/53632260/208357301-5c5aeade-c719-4f3b-a370-5f1155ad7603.png)
 ![image](https://user-images.githubusercontent.com/53632260/208357271-47794c2d-c9ca-4e81-9e1b-da6064c9523c.png)
 ![image](https://user-images.githubusercontent.com/53632260/208357333-776194d0-e904-4694-a2a1-8aa7115b50c3.png)
