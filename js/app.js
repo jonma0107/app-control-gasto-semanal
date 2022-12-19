@@ -136,19 +136,27 @@ class UI {
       this.imprimirAlerta('Te has gastado el 75% del presupuesto', 'error')
       restanteDiv.classList.remove('alert-success');
       restanteDiv.classList.add('alert-danger');
+      formulario.querySelector('button[type="submit"]').disabled = false;
+      formulario.querySelector('button[type="submit"]').style.display = 'inline-block';
     } else if ((presupuesto / 4) > restante) {
       this.imprimirAlerta('Te has gastado más del 75% del presupuesto', 'error')
       restanteDiv.classList.remove('alert-success');
       restanteDiv.classList.add('alert-danger');
+      formulario.querySelector('button[type="submit"]').disabled = false;
+      formulario.querySelector('button[type="submit"]').style.display = 'inline-block';
       // Comprobar el 50% gastado
     } else if ((presupuesto / 2) === restante) {
       this.imprimirAlerta('Te has gastado el 50% del presupuesto', 'warning')
       restanteDiv.classList.remove('alert-success', 'alert-danger');
       restanteDiv.classList.add('alert-warning');
+      formulario.querySelector('button[type="submit"]').disabled = false;
+      formulario.querySelector('button[type="submit"]').style.display = 'inline-block';
     } else if ((presupuesto / 2) > restante) {
       this.imprimirAlerta('Te has gastado mas del 50% del presupuesto', 'warning')
       restanteDiv.classList.remove('alert-success', 'alert-danger');
       restanteDiv.classList.add('alert-warning');
+      formulario.querySelector('button[type="submit"]').disabled = false;
+      formulario.querySelector('button[type="submit"]').style.display = 'inline-block';
     } else {
       restanteDiv.classList.remove('alert-danger', 'alert-warning');
       restanteDiv.classList.add('alert-success');
